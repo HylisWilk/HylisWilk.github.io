@@ -12,5 +12,29 @@
 
 <p id="demo"></p>
 
+  
+<script>
+  
+function myFunction() {
+  var x = document.getElementById("frm1");
+  var text = x.elements[0].value;
+  var str = text.split(" ");
+  
+   for (var i = 0; i < str.length; i++) { 
+  	
+    if (Math.random()<0.2){
+    
+  		str[i] = '_'.repeat(4)  
+    
+    }
+  
+  }
+  
+  document.getElementById("demo").innerHTML = str.join(" ").replace(/\r?\n/g, '<br />');
+  
+}
+</script>
+  
+  
 </body>
 </html>
