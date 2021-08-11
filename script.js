@@ -16,7 +16,7 @@ function gapify(/** @type string */ text, gapsRatio = .2) {
   return gapified
 }
 function normalizeWord(/** @type string */ word) {
-  return word.replace(/[\s\t\n\r-]/g, '').toLowerCase()
+  return word.replace(/\W/g, '').toLowerCase()
 }
 
 const app = new Vue({
