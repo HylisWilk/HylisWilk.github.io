@@ -27,6 +27,7 @@ const app = new Vue({
       rawtext: '',
       gapified: [],
       checking: false,
+      userRatio: 0.2,
     }
   },
   template: `
@@ -41,15 +42,20 @@ const app = new Vue({
     <div v-if="tab === 'gapify'">
       <div class="mb-2">Paste your lyrics here:</div>
       <div class="mb-2"><textarea class="textarea" name="textarea" v-model="rawtext"></textarea></div>
+    	<div class="mb-2">Ratio of words to hide:</div>
+      <input type="text" v-model="userRatio" class="ratio is-small mr-2">
       <div class="mt-4">
         <button class="button is-small" :disabled="!rawtext ? true : null" @click="gapify">Gap-ify!</button>
       </div>
     </div>
 
+
     <div v-if="tab === 'fill-the-gaps'">
       <div class="gapified-text">
-        <span v-for="(word,idx) in gapified" :key="idx">
+        <span v-for="(word,idx) in gapified" :key="idx" :title="checking ? word.word : ''">
           <br v-if="word.br" class="mb-2" />
+          
+
           <input
             v-else-if="word.gap"
             v-model="word.input"
@@ -58,6 +64,7 @@ const app = new Vue({
             :class="{'has-background-danger-light': checking && !wordok(word), 'has-text-danger': checking && !wordok(word), 'has-background-success-light': checking && wordok(word), 'has-text-success': checking && wordok(word)}"
             @keydown="checking=false"
             />
+         
           <span v-else class="mr-2">{{word.word}}</span>
         </span>
       </div>
@@ -78,7 +85,7 @@ const app = new Vue({
     },
     gapify() {
       this.checking = false
-      this.gapified = gapify(this.rawtext)
+      this.gapified = gapify(this.rawtext, gapRatio = this.userRatio)
       this.tab = 'fill-the-gaps'
     },
     check() {
@@ -86,3 +93,4 @@ const app = new Vue({
     },
   }
 })
+
