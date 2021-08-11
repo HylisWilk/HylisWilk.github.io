@@ -8,8 +8,18 @@ textarea.textarea {
   display: inline-block;
 }
 
+input.ratio {
+  width: 20px;
+  display: inline-block;
+  border-width: 0 0 1px 0;
+  border-style: none;
+  user-select: text;
+  outline: none;
+  text-align: center;
+}
+
 input.gap {
-  width: 60px;
+  width: 70px;
   display: inline-block;
   border-width: 0 0 1px 0;
   border-style: solid;
