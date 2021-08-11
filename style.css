@@ -1,0 +1,24 @@
+#app {
+  text-align: center;
+}
+textarea.textarea {
+  width: 450px;
+  height: 150px;
+  min-width: 0px;
+  display: inline-block;
+}
+
+input.gap {
+  width: 100px;
+  display: inline-block;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  user-select: none;
+  outline: none;
+}
+
+.gapified-text span,
+.gapified-text input {
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+}
